@@ -1,0 +1,274 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.red {
+  color: darkred;
+  text-align: center;
+}
+
+.green {
+  color: darkolivegreen;
+  text-align: center;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(20, 21, 25);
+  background: linear-gradient(
+    180deg,
+    rgba(20, 21, 25, 1) 0%,
+    rgba(32, 33, 37, 0.9612219887955182) 47%,
+    rgba(20, 21, 25, 1) 99%
+  );
+}
+
+.container.fade {
+  filter: blur(0.3rem);
+}
+
+.top-header {
+  padding: 3rem 1rem 4rem 1rem;
+  color: #fff;
+  text-align: center;
+  width: 20%;
+}
+
+.top-header .logo {
+  font-size: 2rem;
+  font-family: monospace;
+  position: relative;
+}
+
+.top-header .logo::after {
+  position: absolute;
+  content: "";
+  border-bottom: 1px solid white;
+  width: 50%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.top-header .sub-heading {
+  letter-spacing: 2px;
+}
+
+.main-content {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.main-content .hero-text {
+  font-weight: 900;
+  font-size: 8rem;
+  color: #4e4e4e;
+  position: relative;
+  text-transform: uppercase;
+  font-family: fantasy;
+  letter-spacing: 10px;
+  filter: drop-shadow(0px 10px 5px black);
+  animation: topDown 2s;
+}
+
+.main-content .hero-text.top-text {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+.main-content img {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 60%;
+  filter: drop-shadow(0px 30px 10px black);
+  animation: leftRight 3s;
+}
+
+.main-content .hero-text.bottom-text {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+}
+
+@keyframes topDown {
+  0% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes leftRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.feature {
+  position: absolute;
+  right: 3rem;
+  text-align: right;
+  margin-top: 10rem;
+}
+
+.feature div {
+  margin-bottom: 1rem;
+}
+
+.feature .feature-title {
+  font-weight: 600;
+  font-size: 1.7rem;
+  color: #939f6d;
+  font-family: monospace;
+  /* letter-spacing: 0.01rem; */
+}
+
+.feature .feature-value {
+  color: rgb(184, 181, 181);
+  padding-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.order-now {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.order-now button {
+  background-color: transparent;
+  padding: 1rem 2rem;
+  color: whitesmoke;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  box-shadow: 1px 1px 5px 1px #939f6d, -1px -1px 5px 1px #939f6d;
+
+  cursor: pointer;
+  outline: none;
+  border: none;
+  animation: scaling 3s infinite ease-out;
+}
+
+@keyframes scaling {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.85);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.modal {
+  position: absolute;
+  height: 450px;
+  width: 500px;
+  background-color: white;
+  border: 1px solid green;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.modal .modal-header {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #929292;
+}
+
+.modal-header h3 {
+  color: #4e4e4e;
+}
+
+.modal .modal-header > button {
+  padding: 0.3rem 0.8rem;
+  background-color: #4e4e4e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.modal-content {
+  padding: 1rem 2rem;
+}
+
+.modal-content label {
+  display: inline-block;
+  font-size: 1.1rem;
+  color: #4e4e4e;
+  margin-bottom: 0.2rem;
+}
+
+.modal-content input {
+  width: 90%;
+  padding: 0.5rem 1rem;
+  height: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.modal-content button {
+  border: none;
+  padding: 1em 2em;
+  cursor: pointer;
+  background-color: #4e4e4e;
+  color: white;
+  float: right;
+}
+
+body:has(.modal) {
+  opacity: 0.5;
+}
+
+.loader {
+  border: 2px solid gray;
+  border-radius: 50%;
+  border-top: 2px solid white;
+  width: 10px;
+  height: 10px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
