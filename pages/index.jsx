@@ -82,6 +82,10 @@ export default function Home() {
               <p className="feature-title">Trail</p>
               <p className="feature-value">4.7 in</p>
             </div>
+            <div>
+              <p className="feature-title">Speed</p>
+              <p className="feature-value">100Kmph</p>
+            </div>
           </div>
         </div>
 
